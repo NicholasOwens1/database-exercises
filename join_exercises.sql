@@ -40,6 +40,16 @@ WHERE s.to_date LIKE '9%' AND dm.to_date LIKE '9%'
 ORDER BY dept_name;
 
 
+SELECT first_name, last_name, birth_date
+FROM employees
+WHERE emp_no IN (
+    SELECT emp_no
+    FROM dept_manager
+)
+LIMIT 10;
+
+
+
 
 # SELECT dept_name AS 'Department Name', CONCAT(first_name, ' ', last_name) AS 'Department Manager'
 # FROM departments d JOIN dept_manager dm on d.dept_no = dm.dept_no
